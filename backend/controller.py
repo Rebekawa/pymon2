@@ -32,6 +32,10 @@ def generateGameStatus(game_id, player_id):
     currentGame["sequence"] = currentGame["sequence"].split(",")
     gamePlayers = db.getGamePlayers(game_id)
     currentPlayer["status"] = "viewer"
+    if not currentGame['closed'] and len(currentGame['sequence']) == len(gamePlayers):
+        db.gameIsClosed(game_id)
+        db.updateGameStatus(game_id, "waiting")
+    currentPlayer["status"] = "viewer"
     for p in gamePlayers:
         if p["player"] == player_id:
             currentPlayer["status"] = p["status"]
