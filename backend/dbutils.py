@@ -3,13 +3,12 @@ import pymysql
 
 # Connect to the database
 connection = pymysql.connect(host='db4free.net',
-                             user='root',
+                             user='rebeccakawa',
                              password='abkareno',
-                             db='pymon',
+                             db='pymonrebecca',
                              charset='utf8',
                              autocommit=True,
                              cursorclass=pymysql.cursors.DictCursor)
-
 
 
 def getCursor(sql):
@@ -21,6 +20,7 @@ def getCursor(sql):
         print(repr(e))
         pass
     return result
+
 
 #Run a DB query that expects a list of results
 def queryAll(sql):
@@ -34,6 +34,7 @@ def queryAll(sql):
         pass
     return result
 
+
 #Run a DB query that expects one result
 def queryOne(sql):
     result = None
@@ -45,6 +46,7 @@ def queryOne(sql):
         print(repr(e))
         pass
     return result
+
 
 def updateOrInsert(sql):
     success = False

@@ -6,7 +6,6 @@ export default class Backbutton extends React.Component {
         return (
         <a className="backButton" href="/games" >
             <i class="fas fa-long-arrow-alt-left"></i>
-            Go Back
         </a>
         )
     }

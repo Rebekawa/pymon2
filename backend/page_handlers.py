@@ -12,7 +12,8 @@ def start():
     if currentPlayer:
         redirect("/games")
         return
-    return {"version" : utils.getVersion()}
+    return {"version": utils.getVersion()}
+
 
 @pageHandler.get('/games')
 @jinja2_view('./backend/pages/games.html')
@@ -21,7 +22,8 @@ def games():
     if not currentPlayer:
         redirect("/start")
         return
-    return {"version" : utils.getVersion(), "games": controller.listGames()}
+    return {"version": utils.getVersion(), "games": controller.listGames()}
+
 
 @pageHandler.get('/games/<game_id>')
 @jinja2_view('./backend/pages/game.html')
@@ -30,9 +32,10 @@ def play(game_id):
     if not currentPlayer or not controller.gameExists(game_id):
         redirect("/start")
         return
-    return {"version" : utils.getVersion()}
+    return {"version": utils.getVersion()}
+
 
 @pageHandler.get('/')
 @jinja2_view('./backend/pages/index.html')
 def landing():
-    return {"version" : utils.getVersion()}
+    return {"version": utils.getVersion()}
